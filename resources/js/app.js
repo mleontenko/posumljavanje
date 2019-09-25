@@ -6,6 +6,7 @@
 
 require('./bootstrap');
 require('leaflet');
+require('leaflet-draw');
 
 //window.Vue = require('vue');
 

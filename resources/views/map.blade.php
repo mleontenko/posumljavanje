@@ -31,6 +31,36 @@
 	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 	}).addTo(mymap);
+
+	
+	drawnItems = L.featureGroup().addTo(mymap);
+	L.control.scale({ imperial: false }).addTo(mymap);
+	
+
+	mymap.addControl(new L.Control.Draw({   
+		draw: {
+            polygon: {
+                allowIntersection: false,
+                showArea: true
+            },
+			rectangle: false,
+			circle: false,
+			circlemarker: false,
+			polyline: false,
+			marker: false
+        }
+	}));
+	
+	// Clear previous drawn objects 
+	mymap.on(L.Draw.Event.DRAWSTART, function (event) {
+		drawnItems.clearLayers();
+	});
+	
+	mymap.on(L.Draw.Event.CREATED, function (event) {
+        var layer = event.layer;
+
+        drawnItems.addLayer(layer);
+    });
 	/*
 	L.marker([51.5, -0.09]).addTo(mymap)
 		.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
