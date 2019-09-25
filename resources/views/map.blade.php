@@ -21,23 +21,17 @@
 
 
 
-<div id="mapid" style="width: 600px; height: 400px;"></div>
+<div id="mapid" style="height: calc(100vh - 52px);"></div>
 
 <script src="{{ asset('js/app.js')}}"></script>
 <script>
+	
+	var mymap = L.map('mapid').setView([44.71, 16.46], 7);
 
-    
-
-	var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-
-	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-		maxZoom: 18,
-		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		id: 'mapbox.streets'
+	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 	}).addTo(mymap);
-
+	/*
 	L.marker([51.5, -0.09]).addTo(mymap)
 		.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
 
@@ -64,7 +58,7 @@
 	}
 
 	mymap.on('click', onMapClick);
-
+	*/
 </script>
 
 
