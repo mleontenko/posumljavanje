@@ -60,35 +60,49 @@
         var layer = event.layer;
 
         drawnItems.addLayer(layer);
+
+		addPopup(layer);
     });
-	/*
-	L.marker([51.5, -0.09]).addTo(mymap)
-		.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
 
-	L.circle([51.508, -0.11], 500, {
-		color: 'red',
-		fillColor: '#f03',
-		fillOpacity: 0.5
-	}).addTo(mymap).bindPopup("I am a circle.");
+	function addPopup(layer) {
+		var content = document.createElement("div");
 
-	L.polygon([
-		[51.509, -0.08],
-		[51.503, -0.06],
-		[51.51, -0.047]
-	]).addTo(mymap).bindPopup("I am a polygon.");
-
-
-	var popup = L.popup();
-
-	function onMapClick(e) {
-		popup
-			.setLatLng(e.latlng)
-			.setContent("You clicked the map at " + e.latlng.toString())
-			.openOn(mymap);
+		content.innerHTML = `<div class="form-group">
+							<label>Detalji o području za pošumljavanje:</label>
+							<textarea class="form-control" id="opisArea" rows="5" style="width: 300px"></textarea>
+							</div>
+							<div id="popup-form"></div>
+							<button class="btn btn-primary" type="button" onclick="savePolygon();">Spremi</button>`;
+		
+		layer.bindPopup(content).openPopup();
 	}
 
-	mymap.on('click', onMapClick);
-	*/
+	function savePolygon() {
+		console.log("Spremam poligon");
+		var opis = document.getElementById("opisArea").value;
+        
+        var geojson = drawnItems.toGeoJSON();
+        var geometry = geojson.features[0].geometry;
+        
+        // Append EPSG to geometry 
+        geometry.crs = {"type":"name","properties":{"name":"EPSG:4326"}}; 
+        
+        geometry = JSON.stringify(geometry);
+        
+        $.ajax({
+            type: 'POST',
+            url: 'api/area',
+            data: {
+                'opis': opis,
+            },
+            success: function(msg){
+                console.log(msg);
+
+                areaLayer.redraw();
+                drawnItems.clearLayers();
+            }
+        });
+    }
 </script>
 
 
