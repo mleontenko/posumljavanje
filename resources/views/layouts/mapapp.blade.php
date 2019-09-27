@@ -89,6 +89,7 @@
         
         var geojson = drawnItems.toGeoJSON();
         var geometry = geojson.features[0].geometry;
+		console.log(geometry);
         
         // Append EPSG to geometry 
         geometry.crs = {"type":"name","properties":{"name":"EPSG:4326"}}; 
