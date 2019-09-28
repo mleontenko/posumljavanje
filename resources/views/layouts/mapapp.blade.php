@@ -101,6 +101,7 @@
             url: 'api/area',
             data: {
                 'opis': opis,
+				'geom': geometry
             },
             success: function(msg){
                 console.log(msg);
