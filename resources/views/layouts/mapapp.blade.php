@@ -98,7 +98,8 @@
         
         $.ajax({
             type: 'POST',
-            url: 'api/area',
+			headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            url: 'api/location',			
             data: {
                 'opis': opis,
 				'geom': geometry

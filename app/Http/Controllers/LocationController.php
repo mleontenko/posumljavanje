@@ -7,14 +7,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Location;
 use Validator;
+use Auth;
 
-class PlazaController extends Controller
+class LocationController extends Controller
 {
     //Protect controller from unauthorized users
+    /*
     public function __construct()
     {
         $this->middleware('auth');
     }
+    */
 
     /**
      * Display a listing of the resource.
@@ -40,18 +43,17 @@ class PlazaController extends Controller
         $geom = $request->input('geom');
         $user = Auth::user();
         $userId = $user->id;
-
-
+        
         $geom = DB::raw("ST_TRANSFORM(ST_GeomFromGeoJSON('".$geom."'), 4326)");
         
-        $statement = "INSERT INTO public.locations(opis, user, created_at, geom) VALUES ('".$opis."', ".$userId.", current_timestamp, ".$geom.");";
-        
+        $statement = "INSERT INTO public.locations(opis, \"user\", created_at, geom) VALUES ('".$opis."', ".$userId.", current_timestamp, ".$geom.");";
+                
         $query = DB::statement($statement);
         
         return response()->json([
             'Message'=>'Success',
             'Data' => $query,
-             ], 200);
+             ], 200);                      
     }
 
     /**
