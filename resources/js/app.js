@@ -7,6 +7,7 @@
 require('./bootstrap');
 require('leaflet');
 require('leaflet-draw');
+require ('./scripts/L.TileLayer.BetterWMS.js');
 
 //window.Vue = require('vue');
 

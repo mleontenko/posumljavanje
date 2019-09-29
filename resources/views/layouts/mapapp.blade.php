@@ -38,6 +38,19 @@
 		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 	}).addTo(mymap);
 
+	/*
+	var wmsLayer = L.tileLayer.wms('https://dev.li-st.net/geoserver/up4c_du/wms', {
+		layers: 'ljetnikovci',
+		transparent: true,
+		format: 'image/png'
+	}).addTo(mymap);
+	*/
+
+	var locationsLayer = L.tileLayer.betterWms('https://dev.li-st.net/geoserver/posumljavanje/wms', {
+        layers: 'locations',
+        transparent: true,
+        format: 'image/png'
+      }).addTo(mymap);
 	
 	drawnItems = L.featureGroup().addTo(mymap);
 	L.control.scale({ imperial: false }).addTo(mymap);
@@ -107,7 +120,7 @@
             success: function(msg){
                 console.log(msg);
 
-                areaLayer.redraw();
+                locationsLayer.setParams({fake: Date.now()}, false);
                 drawnItems.clearLayers();
             }
         });
