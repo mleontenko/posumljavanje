@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "leaflet": "^1.5.1",
-        "leaflet-draw": "^1.0.4"
+        "leaflet-draw": "^1.0.4",
+        "leaflet-easybutton": "^2.4.0"
     }
 }

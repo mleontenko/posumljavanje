@@ -124,7 +124,13 @@
                 drawnItems.clearLayers();
             }
         });
-    }
+	}
+	
+	var helloPopup = L.popup().setContent('Hello World!');
+ 
+	L.easyButton('fa-globe', function(btn, mymap){
+		helloPopup.setLatLng(mymap.getCenter()).openOn(mymap);
+	}).addTo( mymap );
 </script>
 
 
