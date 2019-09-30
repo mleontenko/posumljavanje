@@ -16,7 +16,8 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
     
     getFeatureInfo: function (evt) {
       // Make an AJAX request to the server and hope for the best
-      var url = this.getFeatureInfoUrl(evt.latlng),
+      if(featureInfoState === true){
+        var url = this.getFeatureInfoUrl(evt.latlng),
           showResults = L.Util.bind(this.showGetFeatureInfo, this);
       $.ajax({
         url: url,
@@ -28,6 +29,12 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
           showResults(error);  
         }
       });
+      featureInfoState = false;
+      featureInfoButton.enable();
+      $('.leaflet-container').css('cursor','');
+      } else {
+        return;
+      } 
     },
     
     getFeatureInfoUrl: function (latlng) {

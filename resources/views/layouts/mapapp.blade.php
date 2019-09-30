@@ -31,20 +31,14 @@
 
 <script src="{{ asset('js/app.js')}}"></script>
 <script>
+
+	var featureInfoState = false;
 	
 	var mymap = L.map('mapid').setView([44.71, 16.46], 7);
 
 	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 	}).addTo(mymap);
-
-	/*
-	var wmsLayer = L.tileLayer.wms('https://dev.li-st.net/geoserver/up4c_du/wms', {
-		layers: 'ljetnikovci',
-		transparent: true,
-		format: 'image/png'
-	}).addTo(mymap);
-	*/
 
 	var locationsLayer = L.tileLayer.betterWms('https://dev.li-st.net/geoserver/posumljavanje/wms', {
         layers: 'locations',
@@ -125,11 +119,11 @@
             }
         });
 	}
-	
-	var helloPopup = L.popup().setContent('Hello World!');
- 
-	L.easyButton('fa fa-info-circle fa-lg', function(btn, mymap){
-		helloPopup.setLatLng(mymap.getCenter()).openOn(mymap);
+	 
+	var featureInfoButton = L.easyButton('fa fa-info-circle fa-lg', function(btn, mymap){
+		featureInfoState = true;
+		featureInfoButton.disable();
+		$('.leaflet-container').css('cursor','help');
 	}).addTo( mymap );
 </script>
 
