@@ -1,0 +1,5 @@
+.navbar { margin-bottom: 0; }
+
+#mapid {
+    height: calc(100vh - 55px); /* 100% of the viewport height - navbar height */
+}

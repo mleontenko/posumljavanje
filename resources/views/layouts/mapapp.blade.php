@@ -1,8 +1,7 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-	
+<head>	
 	<title>Pošumljavanje</title>
 
 	<meta charset="utf-8" />
@@ -10,16 +9,11 @@
 	<!-- CSRF Token -->
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!--<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>-->
-    <!--<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>-->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-	<style>
-        .navbar { margin-bottom: 0; }
+  <!-- Compiled CSS from libraries -->  
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-        #mapid {
-            height: calc(100vh - 55px); /* 100% of the viewport height - navbar height */
-        }
-    </style>
+  <!-- Custom CSS (public/css/custom.css)-->
+  <link href="{{ asset('css/custom.css') }}" rel="stylesheet">	
 </head>
 <body>
 
@@ -40,11 +34,11 @@
         </button>
       </div>
       <div class="modal-body">
-	  	<p>Autorizirani korisnici imaju pristup kontrolama za ucrtavanje novih područja na kartu.</p>
+        <p>Autorizirani korisnici imaju pristup kontrolama za ucrtavanje novih područja na kartu.</p>
 
-		<p>Područje se crta klikom na tipku<img src="icons/polygon.png" alt="">u gornjem lijevom uglu.</p>
+        <p>Područje se crta klikom na tipku<img src="icons/polygon.png" alt="">u gornjem lijevom uglu.</p>
 
-		<p>Informacije o području dobiju se klikom na tipku<img src="icons/info.png" alt="">u gornjem lijevom uglu. Nakon toga je potrebno kliknuti na lokaciju na karti da bi se dobio popup prozor sa atributima.</p>
+        <p>Informacije o području dobiju se klikom na tipku<img src="icons/info.png" alt="">u gornjem lijevom uglu. Nakon toga je potrebno kliknuti na lokaciju na karti da bi se dobio popup prozor sa atributima.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">Shvaćam</button>
