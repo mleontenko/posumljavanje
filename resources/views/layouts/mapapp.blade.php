@@ -30,28 +30,6 @@
 </div>
 
 <!-- Modal -->
-<!--
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-        
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Kartiranje područja</h4>
-            </div>
-            <div class="modal-body">
-              <p>Autorizirani korisnici imaju pristup kontrolama za ucrtavanje novih područja na kartu.</p>
-
-              Područje se crta klikom na tipku<img src="icons/polygon.png" alt="">u gornjem lijevom uglu.
-          </div>
-		  <div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal">Shvaćam</button>
-		</div>          
-    </div>
-</div>
--->
-
-<!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
