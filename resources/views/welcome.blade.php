@@ -80,9 +80,12 @@
             @endif
 
             <div class="content">
+                <!--
                 <div class="title m-b-md">
                     Dobrodošli!
                 </div>
+                -->
+                <h1>Dobrodošli!</h1>
 
                 <p>Za pristup interaktivnoj karti vas molimo da se registrirate i prijavite u aplikaciju.</p>
                 <p>Ukoliko ste već prijavljeni, kliknite na "Karta" u gornjem desnom uglu</p>

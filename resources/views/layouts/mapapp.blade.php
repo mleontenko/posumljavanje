@@ -39,6 +39,9 @@
         <p>Područje se crta klikom na tipku<img src="icons/polygon.png" alt="">u gornjem lijevom uglu.</p>
 
         <p>Informacije o području dobiju se klikom na tipku<img src="icons/info.png" alt="">u gornjem lijevom uglu. Nakon toga je potrebno kliknuti na lokaciju na karti da bi se dobio popup prozor sa atributima.</p>
+
+        <p style="margin-left:5px"><span style="color:#306EFF;font-size:2em;">■</span> Lokacije za pošumljavanje</p>
+        <p style="margin-left:5px"><span style="color:#33cc33;font-size:2em;">■</span> HR Šume - Površine predviđene za sjetvu i sadnju</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">Shvaćam</button>
