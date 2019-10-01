@@ -16,6 +16,12 @@ var locationsLayer = L.tileLayer.betterWms('https://dev.li-st.net/geoserver/posu
     format: 'image/png'
   }).addTo(mymap);
 
+  var hrsume = L.tileLayer.betterWms('https://dev.li-st.net/geoserver/posumljavanje/wms', {
+    layers: 'hrsume',
+    transparent: true,
+    format: 'image/png'
+}).addTo(mymap);
+
 drawnItems = L.featureGroup().addTo(mymap);
 L.control.scale({ imperial: false }).addTo(mymap);
 

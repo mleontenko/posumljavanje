@@ -19,6 +19,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
       if(featureInfoState === true){
         var url = this.getFeatureInfoUrl(evt.latlng),
           showResults = L.Util.bind(this.showGetFeatureInfo, this);
+          console.log(url);
       $.ajax({
         url: url,
         success: function (data, status, xhr) {
@@ -29,6 +30,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
           showResults(error);  
         }
       });
+      
       featureInfoState = false;
       featureInfoButton.enable();
       $('.leaflet-container').css('cursor','');
@@ -53,9 +55,12 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
             bbox: this._map.getBounds().toBBoxString(),
             height: size.y,
             width: size.x,
-            layers: this.wmsParams.layers,
-            query_layers: this.wmsParams.layers,
-            info_format: 'text/html'
+            //layers: this.wmsParams.layers,
+            layers: 'posumljavanje:locations,posumljavanje:hrsume',
+            //query_layers: this.wmsParams.layers,
+            query_layers: 'posumljavanje:locations,posumljavanje:hrsume',
+            info_format: 'text/html',
+            feature_count: '10'
           };
       
       params[params.version === '1.3.0' ? 'i' : 'x'] = point.x;
