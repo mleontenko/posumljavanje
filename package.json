@@ -27,6 +27,7 @@
         "font-awesome": "^4.7.0",
         "leaflet": "^1.5.1",
         "leaflet-draw": "^1.0.4",
-        "leaflet-easybutton": "^2.4.0"
+        "leaflet-easybutton": "^2.4.0",
+        "leaflet-easyprint": "^2.1.9"
     }
 }

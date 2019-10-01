@@ -101,3 +101,13 @@ var featureInfoButton = L.easyButton('fa fa-info-circle fa-lg', function(btn, my
     featureInfoButton.disable();
     $('.leaflet-container').css('cursor','help');
 }).addTo( mymap );
+
+
+// Print
+var printer = L.easyPrint({
+    // tileLayer: tiles,
+    sizeModes: ['Current', 'A4Landscape', 'A4Portrait'],
+    filename: 'karta',
+    exportOnly: true,
+    hideControlContainer: true
+}).addTo(mymap);

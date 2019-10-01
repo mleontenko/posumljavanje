@@ -40,6 +40,8 @@
 
         <p>Informacije o području dobiju se klikom na tipku<img src="icons/info.png" alt="">u gornjem lijevom uglu. Nakon toga je potrebno kliknuti na lokaciju na karti da bi se dobio popup prozor sa atributima.</p>
 
+        <p>Kartu je moguće isprintati klikom na<img src="icons/print.png" alt="">u gornjem lijevom uglu. Moguće je printati trenutni prozor ili A4 format u panoramskoj ili portret orijentaciji.</p>
+
         <p style="margin-left:5px"><span style="color:#306EFF;font-size:2em;">■</span> Lokacije za pošumljavanje</p>
         <p style="margin-left:5px"><span style="color:#33cc33;font-size:2em;">■</span> HR Šume - Površine predviđene za sjetvu i sadnju</p>
       </div>

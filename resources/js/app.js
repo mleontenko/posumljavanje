@@ -9,6 +9,7 @@ require('leaflet');
 require('leaflet-draw');
 require ('./scripts/L.TileLayer.BetterWMS.js');
 require ('leaflet-easybutton');
+require ('leaflet-easyprint');
 
 //window.Vue = require('vue');
 
