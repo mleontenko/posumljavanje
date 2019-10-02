@@ -1,7 +1,6 @@
-
 <!DOCTYPE html>
 <html>
-<head>	
+<head>
 	<title>Pošumljavanje</title>
 
 	<meta charset="utf-8" />
