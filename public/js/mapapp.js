@@ -57,6 +57,9 @@ function addPopup(layer) {
     var content = document.createElement("div");
 
     content.innerHTML = `<div class="form-group">
+                        <label>Naziv lokacije:</label>
+                        <input class="form-control" type="text" id="name">
+                        <br />
                         <label>Detalji o području za pošumljavanje:</label>
                         <textarea class="form-control" id="opisArea" rows="5" style="width: 300px"></textarea>
                         </div>
@@ -69,31 +72,41 @@ function addPopup(layer) {
 function savePolygon() {
     console.log("Spremam poligon");
     var opis = document.getElementById("opisArea").value;
+    var name = document.getElementById("name").value;
     
     var geojson = drawnItems.toGeoJSON();
     var geometry = geojson.features[0].geometry;
-    console.log(geometry);
-    
-    // Append EPSG to geometry 
-    geometry.crs = {"type":"name","properties":{"name":"EPSG:4326"}}; 
-    
-    geometry = JSON.stringify(geometry);
-    
-    $.ajax({
-        type: 'POST',
-        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        url: 'api/location',			
-        data: {
-            'opis': opis,
-            'geom': geometry
-        },
-        success: function(msg){
-            console.log(msg);
 
-            locationsLayer.setParams({fake: Date.now()}, false);
-            drawnItems.clearLayers();
-        }
-    });
+    if(name == false || opis == false) {
+        alert("Naziv i opis su obavezni!");
+        drawnItems.clearLayers();
+    } else {
+        // Append EPSG to geometry
+        geometry.crs = {"type":"name","properties":{"name":"EPSG:4326"}}; 
+        
+        geometry = JSON.stringify(geometry);
+        
+        $.ajax({
+            type: 'POST',
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            url: 'api/location',			
+            data: {
+                'opis': opis,
+                'name': name,
+                'geom': geometry
+            },
+            success: function(msg){
+                console.log(msg);
+
+                locationsLayer.setParams({fake: Date.now()}, false);
+                drawnItems.clearLayers();
+            },
+            error: function(){
+                alert('Pohrana nije usbjela :( \nMolimo pokušajte opet! ');
+                drawnItems.clearLayers();
+              }
+        });
+    }
 }
  
 var featureInfoButton = L.easyButton('fa fa-info-circle fa-lg', function(btn, mymap){

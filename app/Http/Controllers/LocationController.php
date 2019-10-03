@@ -39,14 +39,21 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {   
+        $this->validate($request, [
+            'opis' => 'required',
+            'geom' => 'required',
+            'name' => 'required'
+        ]);
+
         $opis = $request->input('opis');
         $geom = $request->input('geom');
+        $ime = $request->input('name');
         $user = Auth::user();
         $userId = $user->id;
         
         $geom = DB::raw("ST_TRANSFORM(ST_GeomFromGeoJSON('".$geom."'), 4326)");
         
-        $statement = "INSERT INTO public.locations(opis, \"user\", created_at, geom) VALUES ('".$opis."', ".$userId.", current_timestamp, ".$geom.");";
+        $statement = "INSERT INTO public.locations(opis, \"user\", created_at, geom, ime) VALUES ('".$opis."', ".$userId.", current_timestamp, ".$geom.", '".$ime."');";
                 
         $query = DB::statement($statement);
         
