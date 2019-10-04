@@ -51,7 +51,7 @@
         </div>
     </div>
 </nav>
-<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics Marin -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129646749-2"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -59,4 +59,14 @@
     gtag('js', new Date());
 
     gtag('config', 'UA-129646749-2');
-    </script>
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics CROGIS -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148330073-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148330073-1');
+</script>
