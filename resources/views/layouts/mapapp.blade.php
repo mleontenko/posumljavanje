@@ -33,9 +33,14 @@
         </button>
       </div>
       <div class="modal-body">
+        @auth
         <p>Autorizirani korisnici imaju pristup kontrolama za ucrtavanje novih područja na kartu.</p>
-
+        
         <p>Područje se crta klikom na tipku<img src="icons/polygon.png" alt="">u gornjem lijevom uglu.</p>
+        @endauth
+        @guest
+        <p>Dobrodošli! Ovdje možete pregledavati područja za pošumljavanje. </p>        
+        @endguest
 
         <p>Informacije o području dobiju se klikom na tipku<img src="icons/info.png" alt="">u gornjem lijevom uglu. Nakon toga je potrebno kliknuti na lokaciju na karti da bi se dobio popup prozor sa atributima.</p>
 
@@ -55,6 +60,9 @@
 <script src="{{ asset('js/app.js')}}"></script>
 
 <!-- Custom JS  -->
-<script src="{{ asset('js/mapapp.js')}}"></script>
+<script src="{{ asset('js/guestapp.js')}}"></script>
+@auth
+  <script src="{{ asset('js/protomapapp.js')}}"></script>
+@endauth
 </body>
 </html>
