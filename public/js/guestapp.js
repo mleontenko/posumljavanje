@@ -5,7 +5,7 @@ $(window).on('load',function(){
 
 var featureInfoState = false;
 
-var mymap = L.map('mapid').setView([44.71, 16.46], 7);
+var mymap = L.map('mapid', { minZoom: 7, maxZoom: 18, center: new L.LatLng(44.650, 16.708), zoom: 7, maxBounds: [[40.995, 11.572], [48.256, 22.920]] });
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
