@@ -62,7 +62,7 @@
 <!-- Custom JS  -->
 <script src="{{ asset('js/guestapp.js')}}"></script>
 @auth
-  <script src="{{ asset('js/protomapapp.js')}}"></script>
+  <script src="{{ asset('js/mapapp.js')}}"></script>
 @endauth
 </body>
 </html>
