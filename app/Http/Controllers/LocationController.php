@@ -51,6 +51,15 @@ class LocationController extends Controller
         $user = Auth::user();
         $userId = $user->id;
         
+        // Check if user is verified
+        $userVerify = $user->verified;
+        if ($userVerify === false) {
+            return response()->json([
+                'Message'=>'User not verified.',
+                 ], 500);    
+        }
+
+        
         $geom = DB::raw("ST_TRANSFORM(ST_GeomFromGeoJSON('".$geom."'), 4326)");
         
         $statement = "INSERT INTO public.locations(opis, \"user\", created_at, geom, ime) VALUES ('".$opis."', ".$userId.", current_timestamp, ".$geom.", '".$ime."');";
