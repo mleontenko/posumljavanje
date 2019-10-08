@@ -59,10 +59,10 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
             layers: 'posumljavanje:locations,posumljavanje:hrsume',
             //query_layers: this.wmsParams.layers,
             query_layers: 'posumljavanje:locations,posumljavanje:hrsume',
-            info_format: 'text/html',
-            feature_count: '10'
+            info_format: 'application/json',
+            feature_count: '2'
           };
-      console.log(point);
+      //console.log(point);
       params[params.version === '1.3.0' ? 'i' : 'x'] = Math.round(point.x);
       params[params.version === '1.3.0' ? 'j' : 'y'] = Math.round(point.y);
       
@@ -70,12 +70,37 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
     },
     
     showGetFeatureInfo: function (err, latlng, content) {
-      if (err) { console.log(err); return; } // do nothing if there's an error
+      if (err) { console.log(err); /*return;*/ } // do nothing if there's an error
       
+      var popupContent = '';
+
+      if (content.features.length > 0) {
+        $.each( content.features, function( key, value ) {
+          if (value.id.includes('locations')) {            
+            popupContent+='<h5>'+'Lokacije - '+value.properties.ime+'</h5>';
+            popupContent+='<p>id: '+value.properties.id+'</p>';
+            popupContent+='<p>Opis: '+value.properties.opis+'</p>';
+            popupContent+='<p>Datum: '+value.properties.created_at+'</p><br />';
+          } else if (value.id.includes('hrsume')) {
+            popupContent+='<h5>'+'HR sume - '+value.properties.gjnaz+'</h5>';
+            popupContent+='<p>gj: '+value.properties.gj+'</p>';
+            popupContent+='<p>obj: '+value.properties.obj+'</p>';
+            popupContent+='<p>odjel: '+value.properties.odjel+'</p>';
+            popupContent+='<p>odsjek: '+value.properties.odsjek+'</p>';
+            popupContent+='<p>pov: '+value.properties.pov+'</p>';
+            popupContent+='<p>rad: '+value.properties.rad+'</p>';
+            popupContent+='<p>radnaz: '+value.properties.radnaz+'</p>';
+            popupContent+='<p>sumarija: '+value.properties.sumarija+'</p>';
+            popupContent+='<p>usp: '+value.properties.usp+'</p>';
+            popupContent+='<p>uspnaz: '+value.properties.uspnaz+'</p><br />';            
+          }          
+        });
+      }
+
       // Otherwise show the content in a popup, or something.
       L.popup({ maxWidth: 800})
         .setLatLng(latlng)
-        .setContent(content)
+        .setContent(popupContent)
         .openOn(this._map);
     }
   });
