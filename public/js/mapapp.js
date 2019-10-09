@@ -1,4 +1,7 @@
 console.log('Loading adminapp...');
+
+adminapp = true;
+
 mymap.addControl(new L.Control.Draw({   
     draw: {
         polygon: {
@@ -81,4 +84,21 @@ function savePolygon() {
         });
     }
 }
+
+function deleteLocation(id) {
+    $.ajax({
+        url: 'api/location/'+id,
+        type: 'DELETE',
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        success: function(result) {
+            locationsLayer.setParams({fake: Date.now()}, false);
+            mymap.closePopup();
+        },
+        error: function(){
+            alert('Brisanje nije uspjelo :( \nNapomena: Možete brisati samo lokacije koje ste sami ucrtali! ');
+            drawnItems.clearLayers();
+        }
+    });
+}
+
 console.log('Finished loading adminapp.');

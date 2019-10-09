@@ -77,12 +77,16 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
       if (content.features.length > 0) {
         $.each( content.features, function( key, value ) {
           if (value.id.includes('locations')) {            
-            popupContent+='<h5>'+'Lokacije - '+value.properties.ime+'</h5>';
+            popupContent+='<h5><span style="color:#306EFF;font-size:2em;">■</span> Lokacije - '+value.properties.ime+'</h5>';
             popupContent+='<p>id: '+value.properties.id+'</p>';
             popupContent+='<p>Opis: '+value.properties.opis+'</p>';
-            popupContent+='<p>Datum: '+value.properties.created_at+'</p><br />';
+            popupContent+='<p>Datum: '+value.properties.created_at+'</p>';
+            if(adminapp) {
+              popupContent+='<button onclick="deleteLocation('+value.properties.id+')" class="btn btn-danger btn-sm">Obriši</button>';
+            }
+            popupContent+='<br /><br /><br />';
           } else if (value.id.includes('hrsume')) {
-            popupContent+='<h5>'+'HR sume - '+value.properties.gjnaz+'</h5>';
+            popupContent+='<h5><span style="color:#ff9900;font-size:2em;">■</span> HR sume - '+value.properties.gjnaz+'</h5>';
             popupContent+='<p>gj: '+value.properties.gj+'</p>';
             popupContent+='<p>obj: '+value.properties.obj+'</p>';
             popupContent+='<p>odjel: '+value.properties.odjel+'</p>';
@@ -92,7 +96,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
             popupContent+='<p>radnaz: '+value.properties.radnaz+'</p>';
             popupContent+='<p>sumarija: '+value.properties.sumarija+'</p>';
             popupContent+='<p>usp: '+value.properties.usp+'</p>';
-            popupContent+='<p>uspnaz: '+value.properties.uspnaz+'</p><br />';            
+            popupContent+='<p>uspnaz: '+value.properties.uspnaz+'</p><br /><br /><br />';            
           }          
         });
       }

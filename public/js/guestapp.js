@@ -41,4 +41,7 @@ var printer = L.easyPrint({
     exportOnly: true,
     hideControlContainer: true
 }).addTo(mymap);
+
+var adminapp = false;
+
 console.log('Finished loading guestapp...');

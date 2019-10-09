@@ -80,10 +80,20 @@ class LocationController extends Controller
      */
     public function destroy($id)
     {
-        $localtion = Location::find($id);        
-        $location->delete();
-        return response()->json([
-            'Message' => 'Deleted'
-        ], 200);
+        $location = Location::find($id);
+        $user = Auth::user();
+        $userId = $user->id;
+
+        if ($location->user === $userId) {
+            $location->delete();
+            return response()->json([
+                'Message' => 'Deleted'
+            ], 200);
+        } else {
+            return response()->json([
+                'Message' => 'Failed to delete - user is not owner'
+            ], 500);
+        }      
+        
     }
 }
