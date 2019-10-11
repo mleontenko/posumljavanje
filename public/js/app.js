@@ -51550,19 +51550,22 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
             popupContent += '<button onclick="deleteLocation(' + value.properties.id + ')" class="btn btn-danger btn-sm">Obriši</button>';
           }
 
-          popupContent += '<br /><br /><br />';
+          popupContent += '<br /><br />';
         } else if (value.id.includes('hrsume')) {
           popupContent += '<h5><span style="color:#ff9900;font-size:2em;">■</span> HR sume </h5>';
-          popupContent += '<p>Naziv uspostave: ' + value.properties.uspnaz + '</p>';
+          popupContent += '<p>Naziv podružnice: ' + value.properties.uspnaz + '</p>';
+          popupContent += '<p>Šifra podružnice: ' + value.properties.usp + '</p>';
           popupContent += '<p>Šumarija: ' + value.properties.sumarija + '</p>';
+          popupContent += '<p>Šifra šumarije: ' + value.properties.obj + '</p>';
           popupContent += '<p>Gospodarska jedinica: ' + value.properties.gj + '</p>';
           popupContent += '<p>Naziv gospodarske jedinice: ' + value.properties.gjnaz + '</p>';
           popupContent += '<p>Odjel: ' + value.properties.odjel + '</p>';
           popupContent += '<p>Odsjek: ' + value.properties.odsjek + '</p>';
-          popupContent += '<p>Naziv radova: ' + value.properties.radnaz + '</p>'; //popupContent+='<p>obj: '+value.properties.obj+'</p>';            
+          popupContent += '<p>Naziv radova: ' + value.properties.radnaz + '</p>';
+          popupContent += '<p>Površina: ' + value.properties.pov + ' ha </p>'; //popupContent+='<p>rad: '+value.properties.rad+'</p>';
 
-          popupContent += '<p>Površina: ' + value.properties.pov + ' ha </p><br /><br /><br />'; //popupContent+='<p>rad: '+value.properties.rad+'</p>';                       
-          //popupContent+='<p>usp: '+value.properties.usp+'</p>';        
+          popupContent += '<p>Tehnologija: ' + value.properties.teh + '</p>';
+          popupContent += '<br /><br />';
         }
       });
     } // Otherwise show the content in a popup, or something.
