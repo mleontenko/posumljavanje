@@ -30,7 +30,7 @@ var featureInfoButton = L.easyButton('fa fa-info-circle fa-lg', function(btn, my
     featureInfoState = true;
     featureInfoButton.disable();
     $('.leaflet-container').css('cursor','help');
-}).addTo( mymap );
+}, 'Info o lokaciji').addTo( mymap );
 
 var shareButton = L.easyButton('fa fa-share-alt fa-lg', function(){
     var center = mymap.getCenter();
@@ -41,7 +41,7 @@ var shareButton = L.easyButton('fa fa-share-alt fa-lg', function(){
     //console.log(shareUrl);
     $('#shareModal').modal('show');
     $("#link-field").html('<code>'+shareUrl+'</code>');
-}).addTo( mymap );
+}, 'Podijeli').addTo( mymap );
 
 // Print
 var printer = L.easyPrint({
