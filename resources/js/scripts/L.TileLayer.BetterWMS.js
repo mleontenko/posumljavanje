@@ -76,11 +76,14 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
 
       if (content.features.length > 0) {
         $.each( content.features, function( key, value ) {
-          if (value.id.includes('locations')) {            
+          if (value.id.includes('locations')) {
             popupContent+='<h5><span style="color:#306EFF;font-size:2em;">■</span> Lokacije - '+value.properties.ime+'</h5>';
             popupContent+='<p>id: '+value.properties.id+'</p>';
             popupContent+='<p>Opis: '+value.properties.opis+'</p>';
             popupContent+='<p>Datum: '+value.properties.created_at+'</p>';
+            if(value.properties.photo != 'noimage.jpg') {
+              popupContent+='<img class="photo" src="/storage/photos/'+value.properties.photo+'" width="300"><br /><br />';
+            }
             if(adminapp) {
               popupContent+='<button onclick="deleteLocation('+value.properties.id+')" class="btn btn-danger btn-sm">Obriši</button>';
             }
@@ -105,7 +108,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
       }
 
       // Otherwise show the content in a popup, or something.
-      L.popup({ maxWidth: 800})
+      L.popup({ maxWidth: 800, autoPan:true })
         .setLatLng(latlng)
         .setContent(popupContent)
         .openOn(this._map);

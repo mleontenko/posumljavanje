@@ -38,6 +38,9 @@ function addPopup(layer) {
                         <br />
                         <label>Detalji o području za pošumljavanje:</label>
                         <textarea class="form-control" id="opisArea" rows="5" style="width: 300px"></textarea>
+                        <br />
+                        <label>Slika (maksimalna veličina 5MB):</label>                                                    
+                        <input id="sortpicture" type="file" name="sortpic" />         
                         </div>
                         <div id="popup-form"></div>
                         <button class="btn btn-primary" type="button" onclick="savePolygon();">Spremi</button>`;
@@ -50,9 +53,15 @@ function savePolygon() {
     var opis = document.getElementById("opisArea").value;
     var name = document.getElementById("name").value;
     
+    var file_data = $('#sortpicture').prop('files')[0];   
+    var form_data = new FormData();                  
+    form_data.append('file', file_data);
+    form_data.append('opis', opis);
+    form_data.append('name', name);
+    
     var geojson = drawnItems.toGeoJSON();
     var geometry = geojson.features[0].geometry;
-
+    
     if(name == false || opis == false) {
         alert("Naziv i opis su obavezni!");
         drawnItems.clearLayers();
@@ -61,16 +70,16 @@ function savePolygon() {
         geometry.crs = {"type":"name","properties":{"name":"EPSG:4326"}}; 
         
         geometry = JSON.stringify(geometry);
+        form_data.append('geom', geometry);
         
         $.ajax({
             type: 'POST',
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             url: 'api/location',			
-            data: {
-                'opis': opis,
-                'name': name,
-                'geom': geometry
-            },
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: form_data,
             success: function(msg){
                 console.log(msg);
 

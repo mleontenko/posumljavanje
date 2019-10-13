@@ -51546,6 +51546,10 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
           popupContent += '<p>Opis: ' + value.properties.opis + '</p>';
           popupContent += '<p>Datum: ' + value.properties.created_at + '</p>';
 
+          if (value.properties.photo != 'noimage.jpg') {
+            popupContent += '<img class="photo" src="/storage/photos/' + value.properties.photo + '" width="300"><br /><br />';
+          }
+
           if (adminapp) {
             popupContent += '<button onclick="deleteLocation(' + value.properties.id + ')" class="btn btn-danger btn-sm">Obriši</button>';
           }
@@ -51572,7 +51576,8 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
 
 
     L.popup({
-      maxWidth: 800
+      maxWidth: 800,
+      autoPan: true
     }).setLatLng(latlng).setContent(popupContent).openOn(this._map);
   }
 });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Location;
 use Validator;
 use Auth;
@@ -42,14 +43,32 @@ class LocationController extends Controller
         $this->validate($request, [
             'opis' => 'required',
             'geom' => 'required',
-            'name' => 'required'
+            'name' => 'required',
+            'file' => 'image|nullable|max:5999'
         ]);
+
+        // Handle File Upload
+        if($request->hasFile('file')){
+            // Get filename with the extension
+            $filenameWithExt = $request->file('file')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('file')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('file')->storeAs('public/photos', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
 
         $opis = $request->input('opis');
         $geom = $request->input('geom');
         $ime = $request->input('name');
         $user = Auth::user();
         $userId = $user->id;
+        $photo = $fileNameToStore;
         
         // Check if user is verified
         $userVerify = $user->verified;
@@ -62,7 +81,7 @@ class LocationController extends Controller
         
         $geom = DB::raw("ST_TRANSFORM(ST_GeomFromGeoJSON('".$geom."'), 4326)");
         
-        $statement = "INSERT INTO public.locations(opis, \"user\", created_at, geom, ime) VALUES ('".$opis."', ".$userId.", current_timestamp, ".$geom.", '".$ime."');";
+        $statement = "INSERT INTO public.locations(opis, \"user\", created_at, geom, ime, photo) VALUES ('".$opis."', ".$userId.", current_timestamp, ".$geom.", '".$ime."', '".$photo."');";
                 
         $query = DB::statement($statement);
         
@@ -86,6 +105,12 @@ class LocationController extends Controller
 
         if ($location->user === $userId) {
             $location->delete();
+
+            if($location->photo != 'noimage.jpg') {
+                //Delete image
+                Storage::delete('public/photos/'.$location->photo);
+            }
+
             return response()->json([
                 'Message' => 'Deleted'
             ], 200);
