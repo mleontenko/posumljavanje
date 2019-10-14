@@ -62,11 +62,11 @@
 </script>
 
 <!-- Global site tag (gtag.js) - Google Analytics CROGIS -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148330073-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148330073-2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'UA-148330073-1');
+    gtag('config', 'UA-148330073-2');
 </script>
