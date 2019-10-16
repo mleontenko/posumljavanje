@@ -48,7 +48,7 @@
 
         <p>Kartu je moguće podijeliti klikom na tipku<img src="icons/share.png" alt="">u gornjem lijevom uglu. Potrebno je samo kopirati i poslati link generiran u popup prozoru.</p>
 
-        <p style="margin-left:5px"><span style="color:#306EFF;font-size:2em;">■</span> Lokacije za pošumljavanje</p>
+        <p style="margin-left:5px"><span style="color:#0000ff;font-size:1.6em;">▨</span> Lokacije za pošumljavanje</p>
         <p style="margin-left:5px"><span style="color:#ff9900;font-size:2em;">■</span> HR Šume - Površine predviđene za sjetvu i sadnju</p>
       </div>
       <div class="modal-footer">
