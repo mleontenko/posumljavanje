@@ -1,6 +1,8 @@
 console.log('Loading guestapp...');
 $(window).on('load',function(){
-    $('#exampleModal').modal('show');
+    if(!sharedZoom) {
+        $('#exampleModal').modal('show');
+    }    
 });
 
 var featureInfoState = false;
@@ -17,7 +19,7 @@ var locationsLayer = L.tileLayer.betterWms('https://dev.li-st.net/geoserver/posu
     format: 'image/png'
   }).addTo(mymap);
 
-  var hrsume = L.tileLayer.betterWms('https://dev.li-st.net/geoserver/posumljavanje/wms', {
+var hrsume = L.tileLayer.betterWms('https://dev.li-st.net/geoserver/posumljavanje/wms', {
     layers: 'hrsume',
     transparent: true,
     format: 'image/png'

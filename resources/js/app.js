@@ -11,6 +11,8 @@ require ('./scripts/L.TileLayer.BetterWMS.js');
 require ('leaflet-easybutton');
 require ('leaflet-easyprint');
 
+require( 'datatables.net-bs4' );
+
 //window.Vue = require('vue');
 
 /**

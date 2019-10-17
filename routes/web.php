@@ -23,4 +23,4 @@ Route::get('/map', function () {
     return view('map');
 });
 
-Route::resource('api/location', 'LocationController');
+Route::resource('api/location', 'ViewLocationController');

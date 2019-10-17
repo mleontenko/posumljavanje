@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "datatables.net-bs4": "^1.10.20",
         "font-awesome": "^4.7.0",
         "leaflet": "^1.5.1",
         "leaflet-draw": "^1.0.4",
