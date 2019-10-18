@@ -23,4 +23,6 @@ Route::get('/map', function () {
     return view('map');
 });
 
-Route::resource('api/location', 'ViewLocationController');
+Route::resource('api/viewlocation', 'ViewLocationController');
+
+Route::resource('api/location', 'LocationController');

@@ -11,7 +11,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li><a class="nav-link" href="/">Karta</a></li>
-                <li><a class="nav-link" href="/api/location">Lokacije</a></li>
+                <li><a class="nav-link" href="/api/viewlocation">Lokacije</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
