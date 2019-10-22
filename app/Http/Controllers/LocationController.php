@@ -40,12 +40,22 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {   
-        $this->validate($request, [
-            'opis' => 'required',
-            'geom' => 'required',
-            'name' => 'required',
-            'file' => 'image|nullable|max:5999'
-        ]);
+        if($request->hasFile('file')){
+            $this->validate($request, [
+                'opis' => 'required',
+                'geom' => 'required',
+                'name' => 'required',
+                'file' => 'image|nullable|max:5999'
+            ]);
+        } else {
+            $this->validate($request, [
+                'opis' => 'required',
+                'geom' => 'required',
+                'name' => 'required'
+            ]);
+        }
+
+        
 
         // Handle File Upload
         if($request->hasFile('file')){

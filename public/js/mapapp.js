@@ -87,7 +87,7 @@ function savePolygon() {
                 drawnItems.clearLayers();
             },
             error: function(){
-                alert('Pohrana nije usbjela :( \nMolimo pokušajte opet! ');
+                alert('Pohrana nije uspjela :( \nMolimo pokušajte opet! ');
                 drawnItems.clearLayers();
               }
         });
