@@ -33,6 +33,10 @@
         </button>
       </div>
       <div class="modal-body">
+        <a href="https://www.crogis.hr/">
+          <img src="icons\cropped-logo-za-web8.png" class="rounded mx-auto d-block" alt="..." width="90" height="80">
+          <h5 class="text-center">CROGIS</h5>
+        </a>
         @auth
         <p>Autorizirani korisnici imaju pristup kontrolama za ucrtavanje novih područja na kartu.</p>
         
@@ -51,7 +55,7 @@
         <p style="margin-left:5px"><span style="color:#0000ff;font-size:1.6em;">▨</span> Lokacije za pošumljavanje</p>
         <p style="margin-left:5px"><span style="color:#ff9900;font-size:2em;">■</span> HR Šume - Površine predviđene za sjetvu i sadnju</p>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer">        
         <button type="button" class="btn btn-primary" data-dismiss="modal">Shvaćam</button>
       </div>
     </div>
