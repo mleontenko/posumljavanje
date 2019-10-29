@@ -27,7 +27,7 @@
                 <th>ID</th>
                 <th>Naziv</th>
                 <th>Opis</th>
-                <th>Korisnik</th>
+                <th>Koordinator</th>
                 <th>Poveznica</th>
             </tr>
         </thead>
@@ -41,7 +41,7 @@
                 @else
                     <td>{{ substr($location->opis, 0, 100) }}</td>
                 @endif  
-                <td>{{$location->name}}</td>
+                <td>{{$location->county}}</td>
                 <td><a href="https://panj.crogis.hr?lat={{ $location->st_y }}&lng={{ $location->st_x }}&zoom=17">Karta</a></td>
             </tr>
             @endforeach
