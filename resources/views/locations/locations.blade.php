@@ -20,6 +20,7 @@
         <div class="container">     
     <br />
     <h1><i class="fa fa-map-marker"></i> Lokacije za pošumljavanje</h1>
+    <p>Ukupan broj sadnica: {{ $locations->sum('seedlings') }}</p>
     @if(count($locations) > 0)
     <table id="datatable" class="table table-striped table-bordered" style="width:100%">
         <thead>
@@ -28,6 +29,7 @@
                 <th>Naziv</th>
                 <th>Opis</th>
                 <th>Koordinator</th>
+                <th>Broj sadnica</th>
                 <th>Poveznica</th>
             </tr>
         </thead>
@@ -42,6 +44,7 @@
                     <td>{{ substr($location->opis, 0, 100) }}</td>
                 @endif  
                 <td>{{$location->county}}</td>
+                <td>{{$location->seedlings}}</td>
                 <td><a href="https://panj.crogis.hr?lat={{ $location->st_y }}&lng={{ $location->st_x }}&zoom=17">Karta</a></td>
             </tr>
             @endforeach
