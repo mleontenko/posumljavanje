@@ -72,7 +72,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
     showGetFeatureInfo: function (err, latlng, content) {
       if (err) { /*console.log(err);*/ /*return;*/ } // do nothing if there's an error
       
-      var popupContent = '';
+      var popupContent = '<div id="leaflet-popup-div">';
 
       if (content.features.length > 0) {
         $.each( content.features, function( key, value ) {
@@ -86,6 +86,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
             }
             if(adminapp) {
               popupContent+='<button onclick="deleteLocation('+value.properties.id+')" class="btn btn-danger btn-sm">Obriši</button>';
+              popupContent+='<button onclick="editLocation('+value.properties.id+')" class="btn btn-primary btn-sm float-right">Uredi</button>';
             }
             popupContent+='<br /><br />';
           } else if (value.id.includes('hrsume')) {
@@ -103,7 +104,8 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
             //popupContent+='<p>rad: '+value.properties.rad+'</p>';
             popupContent+='<p>Tehnologija: '+value.properties.teh+'</p>';            
             popupContent+='<br /><br />';        
-          }          
+          }
+          popupContent+='</div>';
         });
       }
 

@@ -110,4 +110,52 @@ function deleteLocation(id) {
     });
 }
 
+function editLocation(id) {
+    $("#leaflet-popup-div").empty();
+
+    $.ajax({
+        type: 'GET',
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        url: 'api/location/'+id,			
+        
+        success: function(msg){
+            console.log(msg);
+
+            var content = document.createElement("div");
+
+            content.innerHTML = `<div class="form-group">
+                                <label>Naziv lokacije:</label>
+                                <input class="form-control" type="text" id="name" value="`+msg.name+`">
+                                <br />
+                                <label>Detalji o području za pošumljavanje:</label>
+                                <textarea class="form-control" id="opisArea" rows="5" >`+msg.opis+`</textarea>
+                                <br />        
+                                </div>
+                                <div id="popup-form"></div>
+                                <button class="btn btn-primary" type="button" onclick="saveEditedPolygon(`+id+`);">Spremi</button>`;
+
+            document.getElementById("leaflet-popup-div").appendChild(content);
+        }
+    });
+}
+
+function saveEditedPolygon(id) {
+    var opis = document.getElementById("opisArea").value;
+    var name = document.getElementById("name").value;
+
+    $.ajax({
+        url: 'api/location/'+id,
+        type: 'PUT',
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        data: {name: name, opis: opis},
+        success: function(result) {
+            mymap.closePopup();
+        },
+        error: function(){
+            alert('Uređivanje nije uspjelo :( \nNapomena: Možete uređivati samo lokacije koje ste sami ucrtali! ');
+            drawnItems.clearLayers();
+        }
+    });
+}
+
 console.log('Finished loading adminapp.');

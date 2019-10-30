@@ -67039,7 +67039,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
     // do nothing if there's an error
 
 
-    var popupContent = '';
+    var popupContent = '<div id="leaflet-popup-div">';
 
     if (content.features.length > 0) {
       $.each(content.features, function (key, value) {
@@ -67055,6 +67055,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
 
           if (adminapp) {
             popupContent += '<button onclick="deleteLocation(' + value.properties.id + ')" class="btn btn-danger btn-sm">Obriši</button>';
+            popupContent += '<button onclick="editLocation(' + value.properties.id + ')" class="btn btn-primary btn-sm float-right">Uredi</button>';
           }
 
           popupContent += '<br /><br />';
@@ -67074,6 +67075,8 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
           popupContent += '<p>Tehnologija: ' + value.properties.teh + '</p>';
           popupContent += '<br /><br />';
         }
+
+        popupContent += '</div>';
       });
     } // Otherwise show the content in a popup, or something.
 

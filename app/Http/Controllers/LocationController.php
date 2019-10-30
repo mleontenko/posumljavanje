@@ -102,6 +102,66 @@ class LocationController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $location = Location::find($id);
+
+        return response()->json([
+            'name' => $location->ime,
+            'opis' => $location->opis
+        ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'opis' => 'required',
+            'name' => 'required'
+        ]);
+
+        $opis = $request->input('opis');
+        $ime = $request->input('name');
+        $user = Auth::user();
+        $userId = $user->id;
+        
+        // Check if user is verified
+        $userVerify = $user->verified;
+        if ($userVerify === false) {
+            return response()->json([
+                'Message'=>'User not verified.',
+                 ], 500);    
+        }
+
+        $location = Location::find($id);
+        $location->ime = $ime;
+        $location->opis = $opis;
+
+        if ($location->user === $userId) {
+            $location->save();
+
+            return response()->json([
+                'Message' => 'Updated'
+            ], 200);
+        } else {
+            return response()->json([
+                'Message' => 'Failed to update - user is not owner'
+            ], 500);
+        }
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
