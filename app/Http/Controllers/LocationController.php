@@ -76,6 +76,10 @@ class LocationController extends Controller
         $opis = $request->input('opis');
         $geom = $request->input('geom');
         $ime = $request->input('name');
+        $seedlings = $request->input('seedlings');
+        if(empty($seedlings)) {
+            $seedlings = 0;
+        }
         $user = Auth::user();
         $userId = $user->id;
         $photo = $fileNameToStore;
@@ -91,7 +95,7 @@ class LocationController extends Controller
         
         $geom = DB::raw("ST_TRANSFORM(ST_GeomFromGeoJSON('".$geom."'), 4326)");
         
-        $statement = "INSERT INTO public.locations(opis, \"user\", created_at, geom, ime, photo) VALUES ('".$opis."', ".$userId.", current_timestamp, ".$geom.", '".$ime."', '".$photo."');";
+        $statement = "INSERT INTO public.locations(opis, \"user\", created_at, geom, ime, photo, seedlings) VALUES ('".$opis."', ".$userId.", current_timestamp, ".$geom.", '".$ime."', '".$photo."', ".$seedlings.");";
                 
         $query = DB::statement($statement);
         
@@ -113,7 +117,8 @@ class LocationController extends Controller
 
         return response()->json([
             'name' => $location->ime,
-            'opis' => $location->opis
+            'opis' => $location->opis,
+            'seedlings' => $location->seedlings
         ]);
     }
 
@@ -133,6 +138,10 @@ class LocationController extends Controller
 
         $opis = $request->input('opis');
         $ime = $request->input('name');
+        $seedlings = $request->input('seedlings');
+        if(empty($seedlings)) {
+            $seedlings = 0;
+        }
         $user = Auth::user();
         $userId = $user->id;
         
@@ -147,6 +156,7 @@ class LocationController extends Controller
         $location = Location::find($id);
         $location->ime = $ime;
         $location->opis = $opis;
+        $location->seedlings = $seedlings;
 
         if ($location->user === $userId) {
             $location->save();

@@ -67043,10 +67043,13 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
 
     if (content.features.length > 0) {
       $.each(content.features, function (key, value) {
+        console.log(value);
+
         if (value.id.includes('locations')) {
           popupContent += '<h5><span style="color:#306EFF;font-size:2em;">■</span> Lokacije - ' + value.properties.ime + '</h5>';
           popupContent += '<p>id: ' + value.properties.id + '</p>';
           popupContent += '<p>Opis: ' + value.properties.opis + '</p>';
+          popupContent += '<p>Broj sadnica: ' + value.properties.seedlings + '</p>';
           popupContent += '<p>Datum: ' + value.properties.created_at + '</p>';
 
           if (value.properties.photo != 'noimage.jpg') {
