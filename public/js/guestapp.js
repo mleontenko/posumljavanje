@@ -10,7 +10,7 @@ var featureInfoState = false;
 var mymap = L.map('mapid', { minZoom: 7, maxZoom: 18, center: new L.LatLng(44.650, 16.708), zoom: 7, maxBounds: [[40.995, 11.572], [48.256, 22.920]] });
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="https://www.crogis.hr/">CROGIS</a>'
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="https://www.crogis.hr/">CROGIS</a>, powered by <a href="https://www.li-st.net/">LI:ST</a>'
 }).addTo(mymap);
 
 var locationsLayer = L.tileLayer.betterWms('https://dev.li-st.net/geoserver/posumljavanje/wms', {

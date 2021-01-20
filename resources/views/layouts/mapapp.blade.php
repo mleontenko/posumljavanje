@@ -54,6 +54,10 @@
 
         <p style="margin-left:5px"><span style="color:#0000ff;font-size:1.6em;">▨</span> Lokacije za pošumljavanje</p>
         <p style="margin-left:5px"><span style="color:#ff9900;font-size:2em;">■</span> HR Šume - Površine predviđene za sjetvu i sadnju</p>
+        <a href="https://www.li-st.net/" class="float-right">
+          <p>Powered by:</p>
+          <img src="icons\list_logo_small.png" class="rounded mx-auto d-block" alt="..." width="60" height="22">          
+        </a>
       </div>
       <div class="modal-footer">        
         <button type="button" class="btn btn-primary" data-dismiss="modal">Shvaćam</button>
