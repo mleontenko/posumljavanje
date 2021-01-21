@@ -63,5 +63,9 @@
             </table>    
         </div>
     </div>
+
+<!-- Compiled JS from libraries -->
+<script src="{{ asset('js/app.js')}}"></script>
+
 </body>
 </html>
