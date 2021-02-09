@@ -28,3 +28,5 @@ Route::resource('api/viewlocation', 'ViewLocationController');
 Route::resource('api/location', 'LocationController');
 
 Route::resource('membership', 'MembershipController');
+
+Route::resource('contact', 'ContactController');

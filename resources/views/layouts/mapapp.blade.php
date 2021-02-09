@@ -33,17 +33,36 @@
         </button>
       </div>
       <div class="modal-body">
-        <a href="https://www.crogis.hr/">
-          <img src="icons\cropped-logo-za-web8.png" class="rounded mx-auto d-block" alt="..." width="90" height="80">
-          <h5 class="text-center">CROGIS</h5>
-        </a>
+        <div class="row">
+          <div class="col-xs-6">
+            <a href="https://www.crogis.hr/" target="_blank">
+              <img src="icons\cropped-logo-za-web8.png" class="rounded mx-auto d-block" alt="..." width="90" height="80">
+              <h5 class="text-center">CROGIS</h5>
+            </a>
+          </div>
+          <div class="col-xs-6">
+            <a href="https://zasadistablonebudipanj.hr/" target="_blank">
+              <img src="icons\udruga_logo.jpg" class="rounded mx-auto d-block" alt="..." width="90" height="80">          
+            </a>
+          </div>
+        </div>
+        
+      
         @auth
         <p>Autorizirani korisnici imaju pristup kontrolama za ucrtavanje novih područja na kartu.</p>
         
         <p>Područje se crta klikom na tipku<img src="icons/polygon.png" alt="">u gornjem lijevom uglu.</p>
         @endauth
         @guest
-        <p>Dobrodošli! Ovdje možete pregledavati područja za pošumljavanje. </p>        
+        <p>Dobrodošli na GIS portal za pošumljavanje udruge UZSNP</p>
+        <p>Svjesni potrebe za djelovanjem u utrci s klimatskom krizom, nudimo odgovor na istu u
+            obliku sadnje stabala, kako bi svi zajedno podizali ekološku svijest
+            i potvrdili društvenu i ekološku odgovornost te na taj način potpomogli u
+            realizaciji strategija ublažavanja posljedica klimatskih promjena prema EU
+            standardima, poboljšali kvalitetu naših životnih i radnih sredina, 
+
+            te ublažili postojeće posljedice klimatske krize 
+        </p>        
         @endguest
 
         <p>Informacije o području dobiju se klikom na tipku<img src="icons/info.png" alt="">u gornjem lijevom uglu. Nakon toga je potrebno kliknuti na lokaciju na karti da bi se dobio popup prozor sa atributima.</p>
@@ -54,7 +73,7 @@
 
         <p style="margin-left:5px"><span style="color:#0000ff;font-size:1.6em;">▨</span> Lokacije za pošumljavanje</p>
         <p style="margin-left:5px"><span style="color:#ff9900;font-size:2em;">■</span> HR Šume - Površine predviđene za sjetvu i sadnju</p>
-        <a href="https://www.li-st.net/" class="float-right">
+        <a href="https://www.li-st.net/" class="float-right" target="_blank">
           <p>Powered by:</p>
           <img src="icons\list_logo_small.png" class="rounded mx-auto d-block" alt="..." width="60" height="22">          
         </a>
