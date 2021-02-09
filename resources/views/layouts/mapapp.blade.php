@@ -35,16 +35,18 @@
       <div class="modal-body">
         <div class="row mymodal-align">
           <div class="col-xs-6">
+            <a href="https://zasadistablonebudipanj.hr/" target="_blank">
+              <img src="icons\udruga_logo.jpg" class="rounded mx-auto d-block" alt="..." height="80">          
+            </a>
+          </div>
+
+          <div class="col-xs-6">
             <a href="https://www.crogis.hr/" target="_blank">
               <img src="icons\cropped-logo-za-web8.png" class="rounded mx-auto d-block" alt="..." width="90" height="80">
               <h5 class="text-center">CROGIS</h5>
             </a>
           </div>
-          <div class="col-xs-6">
-            <a href="https://zasadistablonebudipanj.hr/" target="_blank">
-              <img src="icons\udruga_logo.jpg" class="rounded mx-auto d-block" alt="..." width="90" height="80">          
-            </a>
-          </div>
+          
         </div>
         
       
