@@ -33,7 +33,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="row">
+        <div class="row mymodal-align">
           <div class="col-xs-6">
             <a href="https://www.crogis.hr/" target="_blank">
               <img src="icons\cropped-logo-za-web8.png" class="rounded mx-auto d-block" alt="..." width="90" height="80">

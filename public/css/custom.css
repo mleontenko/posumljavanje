@@ -1,5 +1,9 @@
 .navbar { margin-bottom: 0; }
 
+.bg-dark {
+    background-color: #2b2928 !important;
+}
+
 #mapid {
     height: calc(100vh - 55px); /* 100% of the viewport height - navbar height */
 }
@@ -8,4 +12,40 @@
 
 .leaflet-popup-content p {
     margin: 5px 0;
+}
+
+.mymodal-align {
+    justify-content: center;
+}
+.mycard-contacts {
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    margin-bottom: 15px;
+}
+.mycard-contacts .card-title {
+    height: 40px;
+}
+.my-container {
+    display: flex;
+    flex-basis: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+.mya-contacts {
+    display: flex;
+    line-break: anywhere;
+}
+
+.div-flex {
+    display: flex;
+    flex-basis: 100%;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align: center;
+}
+
+.div-flex p:first-of-type {
+    text-align: center;
+    border-bottom: 1px solid #014680;
+    width: 100%;
 }
