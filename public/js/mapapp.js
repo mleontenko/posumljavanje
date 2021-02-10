@@ -36,7 +36,7 @@ function addPopup(layer) {
                         <label>* Naziv lokacije:</label>
                         <input class="form-control" type="text" id="name">
                         <br />
-                        <label>* Detalji o području za pošumljavanje:</label>
+                        <label>* Detalji o području za sadnju:</label>
                         <textarea class="form-control" id="opisArea" rows="5" style="width: 300px"></textarea>
                         <br />
                         <label>Broj sadnica:</label>
@@ -132,7 +132,7 @@ function editLocation(id) {
                                 <label>* Naziv lokacije:</label>
                                 <input class="form-control" type="text" id="name" value="`+msg.name+`">
                                 <br />
-                                <label>* Detalji o području za pošumljavanje:</label>
+                                <label>* Detalji o području za sadnju:</label>
                                 <textarea class="form-control" id="opisArea" rows="5" >`+msg.opis+`</textarea>
                                 <br />
                                 <label>Broj sadnica:</label>

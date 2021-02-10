@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Pošumljavanje</title>
+	<title>UZSNP</title>
 
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,8 +42,8 @@
 
           <div class="col-xs-6">
             <a href="https://www.crogis.hr/" target="_blank">
-              <img src="icons\cropped-logo-za-web8.png" class="rounded mx-auto d-block" alt="..." width="90" height="80">
-              <h5 class="text-center">CROGIS</h5>
+              <img src="icons\cropped-logo-za-web8.png" class="rounded mx-auto d-block" alt="..." height="80">
+              <!--<h5 class="text-center">CROGIS</h5>-->
             </a>
           </div>
           
@@ -56,7 +56,8 @@
         <p>Područje se crta klikom na tipku<img src="icons/polygon.png" alt="">u gornjem lijevom uglu.</p>
         @endauth
         @guest
-        <p>Dobrodošli na GIS portal za pošumljavanje udruge UZSNP</p>
+        <br />
+        <p>Dobrodošli na GIS portal kampanje za sadnju stabala UZSNP</p>
         <p>Svjesni potrebe za djelovanjem u utrci s klimatskom krizom, nudimo odgovor na istu u
             obliku sadnje stabala, kako bi svi zajedno podizali ekološku svijest
             i potvrdili društvenu i ekološku odgovornost te na taj način potpomogli u
@@ -73,7 +74,7 @@
 
         <p>Kartu je moguće podijeliti klikom na tipku<img src="icons/share.png" alt="">u gornjem lijevom uglu. Potrebno je samo kopirati i poslati link generiran u popup prozoru.</p>
 
-        <p style="margin-left:5px"><span style="color:#0000ff;font-size:1.6em;">▨</span> Lokacije za pošumljavanje</p>
+        <p style="margin-left:5px"><span style="color:#0000ff;font-size:1.6em;">▨</span> Lokacije za sadnju</p>
         <p style="margin-left:5px"><span style="color:#ff9900;font-size:2em;">■</span> HR Šume - Površine predviđene za sjetvu i sadnju</p>
         <a href="https://www.li-st.net/" class="float-right" target="_blank">
           <p>Powered by:</p>

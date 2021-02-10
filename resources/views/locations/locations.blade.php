@@ -19,7 +19,7 @@
         @include('inc.navbar')
         <div class="container">     
     <br />
-    <h1><i class="fa fa-map-marker"></i> Lokacije za pošumljavanje</h1>
+    <h1><i class="fa fa-map-marker"></i> Lokacije za sadnju</h1>
     <p>Ukupan broj sadnica: {{ $locations->sum('seedlings') }}</p>
     @if(count($locations) > 0)
     <table id="datatable" class="table table-striped table-bordered" style="width:100%">
