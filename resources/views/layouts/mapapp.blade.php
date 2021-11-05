@@ -76,10 +76,37 @@
 
         <p style="margin-left:5px"><span style="color:#0000ff;font-size:1.6em;">▨</span> Lokacije za sadnju</p>
         <p style="margin-left:5px"><span style="color:#ff9900;font-size:2em;">■</span> HR Šume - Površine predviđene za sjetvu i sadnju</p>
-        <a href="https://www.li-st.net/" class="float-right" target="_blank">
-          <p>Powered by:</p>
-          <img src="icons\list_logo_small.png" class="rounded mx-auto d-block" alt="..." width="60" height="22">          
-        </a>
+        
+        <div style="text-align: center;">
+            <a href="https://www.li-st.net/"  class="float-left" target="_blank" style="margin-top: 10px !important;">
+              <img src="icons\1200px-Tisak_Logo.png" class="rounded mx-auto d-block" alt="..." width="110" height="60">          
+            </a>
+            <a href="https://www.li-st.net/" class="float-left" target="_blank" style="margin-left: 20px !important;">
+              <img src="icons\MGOR_HR_4C.png" class="rounded mx-auto d-block" alt="..." width="180" height="80">          
+            </a>
+            <!-- <a href="https://www.li-st.net/"  target="_blank">
+              <img src="icons\Sberbank logo_4C.jpg" class="rounded mx-auto d-block" alt="..." width="60" height="40">          
+            </a>
+            <a href="https://www.li-st.net/"  target="_blank">
+              <img src="icons\GPZ_ logo 002.jpg" class="rounded mx-auto d-block" alt="..." width="60" height="40">          
+            </a> -->
+        </div> <br><br><br><br>
+
+        <div>
+            <a href="https://www.li-st.net/"  class="float-left" target="_blank" style="margin-top: 20px !important;">
+              <img src="icons\Sberbank logo_4C.jpg" class="rounded mx-auto d-block" alt="..." width="140" height="40">   
+            </a> 
+            <a href="https://www.li-st.net/" class="float-left" target="_blank" style="margin-left: 20px !important;">
+              <img src="icons\GPZ_ logo 002.jpg" class="rounded mx-auto d-block" alt="..." width="120" height="60">          
+            </a>
+        </div>
+
+        <div>
+          <a href="https://www.li-st.net/" class="float-right" target="_blank">
+            <p>Powered by:</p>
+            <img src="icons\list_logo_small.png" class="rounded mx-auto d-block" alt="..." width="60" height="22">          
+          </a>
+        </div>
       </div>
       <div class="modal-footer">        
         <button type="button" class="btn btn-primary" data-dismiss="modal">Shvaćam</button>
